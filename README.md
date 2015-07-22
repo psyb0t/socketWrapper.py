@@ -5,14 +5,13 @@ A general purpose TCP socket class.
 ## Installation
 ```
 cd /path/to/script
-git clone git@github.com:psyb0t/socketWrapper.py.git
-cp socketWrapper.py/socketWrapper.py .
+git clone git@github.com:psyb0t/socketWrapper.py.git socketWrapper
 ```
 
 ## Server
 
 ```
-from socketWrapper import TCPSocketServer
+from socketWrapper.socketWrapper import TCPSocketServer
 ```
 
 The constructor accepts a tuple argument consisting of the address of the interface and the port to listen on
