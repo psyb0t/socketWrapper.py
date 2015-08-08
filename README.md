@@ -5,7 +5,7 @@ A general purpose TCP socket class.
 ## Installation
 ```
 cd /path/to/script
-git clone git@github.com:psyb0t/socketWrapper.py.git socketWrapper
+git clone https://github.com/psyb0t/socketWrapper.py.git socketWrapper
 ```
 
 ## Server
