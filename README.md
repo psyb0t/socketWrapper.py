@@ -42,6 +42,8 @@ data = {
 }
 ```
 
+The list of connections is stored as a list of sockets in `server.connections`
+
 __on_disconnect__
 
 Triggered on client disconnect. Called with a dict argument of the following type:

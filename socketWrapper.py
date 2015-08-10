@@ -15,7 +15,7 @@ class TCPSocketServer:
     except:
       self.output(('FATAL', 'Invalid bind port type'))
     
-    self.readable_list = []
+    self.connections = []
   
   def start(self):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -30,14 +30,14 @@ class TCPSocketServer:
       'bind_port': self.bind_port
     }
     self.on_start(data)
-    self.readable_list = [s]
+    self.connections.append(s)
     while True:
-      readable, writable, errored = select.select(self.readable_list, [], [])
+      readable, writable, errored = select.select(self.connections, [], [])
       
       for r in readable:
         if r is s:
           sock, address = s.accept()
-          self.readable_list.append(sock)
+          self.connections.append(sock)
           
           data = {
             'socket': sock,
@@ -75,7 +75,7 @@ class TCPSocketServer:
     try:
       address = conn.getpeername()
       conn.close()
-      self.readable_list.remove(conn)
+      self.connections.remove(conn)
       
       data = {
         'address': address
