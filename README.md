@@ -65,3 +65,7 @@ data = {
     'data': recv_data
 }
 ```
+
+## Client
+
+Documentation coming soon
