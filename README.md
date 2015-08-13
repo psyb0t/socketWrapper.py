@@ -8,16 +8,16 @@ cd /path/to/script
 git clone https://github.com/psyb0t/socketWrapper.py.git socketWrapper
 ```
 
-## Server
+## TCP Server
 
 ```
-from socketWrapper.socketWrapper import TCPSocketServer
+from socketWrapper.tcp import Server
 ```
 
 The constructor accepts a tuple argument consisting of the address of the interface and the port to listen on
 
 ```
-server = TCPSocketServer(('127.0.0.1', 6767))
+server = Server(('127.0.0.1', 6767))
 ```
 
 ### Handlers

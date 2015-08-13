@@ -4,7 +4,7 @@ import sys
 
 from time import localtime, gmtime, time, strftime
 
-class TCPSocketServer:
+class Server:
   def __init__(self, bind_opt):
     if type(bind_opt) is not tuple:
       self.output(('FATAL', 'Invalid bind_opt type. Tuple expected'))
@@ -109,7 +109,7 @@ class TCPSocketServer:
       if oType is 'FATAL':
         sys.exit()
 
-class TCPSocketClient:
+class Client:
   def __init__(self, conn_opt):
     if type(conn_opt) is not tuple:
       self.output(('FATAL', 'Invalid conn_opt type. Tuple expected'))
