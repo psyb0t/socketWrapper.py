@@ -98,13 +98,18 @@ class Server:
   def on_receive(self, data):
     pass
   
-  def output(self, data):
+  def output(self, data, of=None):
     oType, oMessage = data
     if oType in ['INFO', 'WARN', 'FATAL']:
-      print '{} [{}] {}'.format(
+      msg = '{} [{}] {}'.format(
         strftime("%Y %m %d %H:%M:%S", localtime()),
         oType, oMessage
       )
+      print msg
+      
+      if of:
+        with open(of, 'a') as f:
+          f.write('%s\n' % msg)
       
       if oType is 'FATAL':
         sys.exit()
@@ -179,13 +184,18 @@ class Client:
   def on_disconnect(self, data):
     pass
   
-  def output(self, data):
+  def output(self, data, of=None):
     oType, oMessage = data
     if oType in ['INFO', 'WARN', 'FATAL']:
-      print '{} [{}] {}'.format(
+      msg = '{} [{}] {}'.format(
         strftime("%Y %m %d %H:%M:%S", localtime()),
         oType, oMessage
       )
+      print msg
+      
+      if of:
+        with open(of, 'a') as f:
+          f.write('%s\n' % msg)
       
       if oType is 'FATAL':
         sys.exit()
